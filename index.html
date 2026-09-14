@@ -35,11 +35,14 @@
 
   .page {
     max-width: 1240px; margin: 0 auto; padding: 48px 24px;
-    display: flex; gap: 48px; align-items: flex-start;
+    display: flex; gap: 24px; align-items: flex-start;
   }
 
   /* ---- sidebar ---- */
-  .sidebar { width: 220px; flex-shrink: 0; position: sticky; top: 40px; }
+  .sidebar {
+    width: 220px; flex-shrink: 0; position: sticky; top: 40px;
+    padding-right: 40px;
+  }
   .avatar {
     width: 180px; height: 230px; border-radius: 50%; background: var(--bg-soft);
     display: flex; align-items: center; justify-content: center;
@@ -59,7 +62,11 @@
   section { padding-block: 8px 36px; }
   section h2 {
     font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-    color: var(--accent-dim); margin-bottom: 20px;
+    color: var(--accent-dim); margin-bottom: 12px; padding-bottom: 10px; position: relative;
+  }
+  section h2::after {
+    content: ""; position: absolute; left: 0; bottom: 0;
+    width: 32px; height: 3px; border-radius: 2px; background: var(--accent);
   }
 
   .project + .project { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--edge); }
@@ -95,7 +102,7 @@
 
   @media (max-width: 680px) {
     .page { flex-direction: column; gap: 32px; padding: 28px 22px; }
-    .sidebar { width: 100%; position: static; }
+    .sidebar { width: 100%; position: static; padding-right: 0; padding-bottom: 24px; }
     .contact { flex-direction: row; flex-wrap: wrap; gap: 16px; }
     header.top .bar { flex-wrap: wrap; gap: 10px; }
     .demo-window iframe { height: 320px; }
@@ -108,6 +115,7 @@
   <div class="bar">
     <a class="brand" href="#top">Crystal Chen</a>
     <nav>
+      <a href="#research">Research</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
     </nav>
@@ -135,7 +143,20 @@
       <h2>About Me</h2>
       <p>
         Hi! I'm Crystal Chen, a current Computer Science &amp; Applied Math and Statistics junior at Johns
-        Hopkins University.
+        Hopkins University. I do AI research on campus, building tools for a data donation platform, and I
+        work as a course assistant for the CS department. Outside of school I like to travel and try new food.
+      </p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <p>
+        I'm part of a research project building a platform where people can donate their ChatGPT, Claude, and
+        Gemini conversation exports for study, under Professor Kristina Gligorić. I built the frontend review
+        tool: PII detection for things like emails and SSNs, keyword filtering, pagination, and CSV/JSON
+        export. Right now we're interviewing users and collecting more data on how willing people actually
+        are to share this kind of data and how they react to the privacy safeguards, to help figure out what
+        to improve.
       </p>
     </section>
 
